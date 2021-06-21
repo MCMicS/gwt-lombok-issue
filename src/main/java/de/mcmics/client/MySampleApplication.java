@@ -7,6 +7,8 @@ import com.google.gwt.user.client.DOM;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.ClickEvent;
 import de.mcmics.common.User;
+import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
 import lombok.Value;
 
 /**
@@ -51,7 +53,7 @@ public class MySampleApplication implements EntryPoint {
 
     public void onSuccess(User result) {
       UserResult userResult = new UserResult(result.getName(), result.getAge());
-      label.getElement().setInnerHTML(userResult.getName());
+      label.getElement().setInnerHTML(userResult.getMessage());
     }
 
     public void onFailure(Throwable throwable) {
@@ -59,9 +61,20 @@ public class MySampleApplication implements EntryPoint {
     }
   }
 
+  @ParametersAreNonnullByDefault
   @Value
   private static class UserResult {
     private String name;
     private int age;
+
+    @Nonnull
+    public String getMessage() {
+      return getMessage(" : ");
+    }
+
+    @Nonnull
+    public String getMessage(String separator) {
+      return name + separator + age;
+    }
   }
 }

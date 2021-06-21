@@ -3,12 +3,16 @@ name: Java CI with Maven
 on:
   push:
     branches:
-      - master
-      - 1.18.*
+      - delomboked
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        lombok-version: [ 1.18.10, 1.18.12, 1.18.20 ]
 
     steps:
       - uses: actions/checkout@v2
@@ -18,4 +22,4 @@ jobs:
           java-version: '11'
           distribution: 'adopt'
       - name: Build with Maven
-        run: mvn clean package --file pom.xml
+        run: mvn --file pom.xml -Dlombok.version=${{ matrix.lombok-version }} clean package

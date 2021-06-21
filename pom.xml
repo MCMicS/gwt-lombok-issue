@@ -67,6 +67,7 @@
       <systemPath>${project.basedir}/lib/gwt-lombok-issue-commons-1.0-SNAPSHOT.jar</systemPath>
     </dependency>
     <!-- change here to use delomboked or lomboked jar -->
+    <!--
     <dependency>
       <groupId>de.mcmics</groupId>
       <artifactId>gwt-lombok-issue-commons</artifactId>
@@ -75,7 +76,8 @@
       <scope>system</scope>
       <systemPath>${project.basedir}/lib/gwt-lombok-issue-commons-1.0-SNAPSHOT-sources.jar</systemPath>
     </dependency>
-    <!--
+    -->
+
     <dependency>
       <groupId>de.mcmics</groupId>
       <artifactId>gwt-lombok-issue-commons</artifactId>
@@ -84,7 +86,7 @@
       <scope>system</scope>
       <systemPath>${project.basedir}/lib/gwt-lombok-issue-commons-1.0-SNAPSHOT-delombok.jar</systemPath>
     </dependency>
-    -->
+
 
     <dependency>
       <groupId>org.projectlombok</groupId>
