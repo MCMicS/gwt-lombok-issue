@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     strategy:
+      fail-fast: false
       matrix:
         lombok-version: [ 1.18.10, 1.18.12, 1.18.20 ]
 
