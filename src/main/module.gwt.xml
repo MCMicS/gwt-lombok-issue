@@ -1,13 +1,9 @@
-<module rename-to="MySampleApplication">
+<module>
 
-  <!-- Inherit the core Web Toolkit stuff.                  -->
   <inherits name='com.google.gwt.user.User'/>
-
-  <!-- Specify the app entry point class.                   -->
+  <inherits name='de.mcmics.Commons'/>
   <entry-point class='de.mcmics.client.MySampleApplication'/>
 
-
-  <!-- Specify the app servlets.                   -->
   <servlet path='/MySampleApplicationService'
     class='de.mcmics.server.MySampleApplicationServiceImpl'/>
 

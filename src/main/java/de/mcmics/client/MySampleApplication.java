@@ -6,6 +6,8 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.ClickEvent;
+import de.mcmics.common.User;
+import lombok.Value;
 
 /**
  * Entry point classes define <code>onModuleLoad()</code>
@@ -23,7 +25,7 @@ public class MySampleApplication implements EntryPoint {
       public void onClick(ClickEvent event) {
         if (label.getText().equals("")) {
           MySampleApplicationService.App.getInstance()
-              .getMessage("Hello, World!", new MyAsyncCallback(label));
+              .getUser("Bob", new MyAsyncCallback(label));
         } else {
           label.setText("");
         }
@@ -39,7 +41,7 @@ public class MySampleApplication implements EntryPoint {
     RootPanel.get("slot2").add(label);
   }
 
-  private static class MyAsyncCallback implements AsyncCallback<String> {
+  private static class MyAsyncCallback implements AsyncCallback<User> {
 
     private Label label;
 
@@ -47,12 +49,19 @@ public class MySampleApplication implements EntryPoint {
       this.label = label;
     }
 
-    public void onSuccess(String result) {
-      label.getElement().setInnerHTML(result);
+    public void onSuccess(User result) {
+      UserResult userResult = new UserResult(result.getName(), result.getAge());
+      label.getElement().setInnerHTML(userResult.getName());
     }
 
     public void onFailure(Throwable throwable) {
       label.setText("Failed to receive answer from server!");
     }
+  }
+
+  @Value
+  private static class UserResult {
+    private String name;
+    private int age;
   }
 }

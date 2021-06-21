@@ -6,15 +6,12 @@
   <groupId>de.mcmics</groupId>
   <artifactId>gwt-lombok-issue</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <modules>
-    <module>commons</module>
-  </modules>
-  <packaging>pom</packaging>
+  <packaging>gwt-app</packaging>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <java.version>11</java.version>
-    <lombok.version>1.18.12</lombok.version>
+    <lombok.version>1.18.10</lombok.version>
     <gwt.version>2.9.0</gwt.version>
   </properties>
 
@@ -35,7 +32,7 @@
       <dependency>
         <groupId>org.projectlombok</groupId>
         <artifactId>lombok</artifactId>
-        <version>${lombok.versionmvn initialize}</version>
+        <version>${lombok.version}</version>
         <scope>provided</scope>
       </dependency>
     </dependencies>
@@ -63,9 +60,35 @@
     </dependency>
 
     <dependency>
+      <groupId>de.mcmics</groupId>
+      <artifactId>gwt-lombok-issue-commons</artifactId>
+      <version>1.0-SNAPSHOT</version>
+      <scope>system</scope>
+      <systemPath>${project.basedir}/lib/gwt-lombok-issue-commons-1.0-SNAPSHOT.jar</systemPath>
+    </dependency>
+    <!-- change here to use delomboked or lomboked jar -->
+    <dependency>
+      <groupId>de.mcmics</groupId>
+      <artifactId>gwt-lombok-issue-commons</artifactId>
+      <version>1.0-SNAPSHOT</version>
+      <classifier>source</classifier>
+      <scope>system</scope>
+      <systemPath>${project.basedir}/lib/gwt-lombok-issue-commons-1.0-SNAPSHOT-sources.jar</systemPath>
+    </dependency>
+    <!--
+    <dependency>
+      <groupId>de.mcmics</groupId>
+      <artifactId>gwt-lombok-issue-commons</artifactId>
+      <version>1.0-SNAPSHOT</version>
+      <classifier>delombok</classifier>
+      <scope>system</scope>
+      <systemPath>${project.basedir}/lib/gwt-lombok-issue-commons-1.0-SNAPSHOT-delombok.jar</systemPath>
+    </dependency>
+    -->
+
+    <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
-      <version>1.18.20</version>
       <scope>provided</scope>
     </dependency>
   </dependencies>
@@ -110,8 +133,8 @@
             <logLevel>INFO</logLevel>
             <style>PRETTY</style>
 
-            <moduleName>de.mcmics.client.MySampleApplication</moduleName>
-            <moduleName>MySampleApplication</moduleName>
+            <moduleName>de.mcmics.MySampleApplication</moduleName>
+            <moduleShortName>MySampleApplication</moduleShortName>
           </configuration>
         </plugin>
         <plugin>

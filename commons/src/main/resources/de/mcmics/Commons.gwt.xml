@@ -1,0 +1,5 @@
+<module rename-to="Commons">
+
+  <source path="common"/>
+
+</module>

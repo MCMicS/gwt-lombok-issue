@@ -44,7 +44,7 @@
 
   <properties>
     <java.version>11</java.version>
-    <lombok.version>1.18.12</lombok.version>
+    <lombok.version>1.18.10</lombok.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <source.basepath>src/main/java</source.basepath>
     <source.delombok.directory>${project.build.directory}/delombok</source.delombok.directory>
@@ -93,7 +93,7 @@
         <plugin>
           <groupId>org.projectlombok</groupId>
           <artifactId>lombok-maven-plugin</artifactId>
-          <version>1.18.20.0</version>
+          <version>${lombok.version}.0</version>
           <executions>
             <execution>
               <goals>
