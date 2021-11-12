@@ -12,7 +12,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        lombok-version: [ 1.18.10, 1.18.12, 1.18.20 ]
+        lombok-version: [ 1.18.10, 1.18.12, 1.18.20, 1.18.22 ]
 
     steps:
       - uses: actions/checkout@v2
